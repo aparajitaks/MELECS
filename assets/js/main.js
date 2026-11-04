@@ -13,26 +13,17 @@
 document.addEventListener('DOMContentLoaded', function () {
   'use strict';
 
-  // 1. Sticky Navbar & Back-to-Top Button
+  // 1. Sticky Navbar
   const navbar = document.querySelector('.main-navbar');
-  const backToTop = document.getElementById('back-to-top');
 
   window.addEventListener('scroll', function () {
     const scrollPos = window.scrollY;
     if (scrollPos > 40) {
       if (navbar) navbar.classList.add('navbar-scrolled');
-      if (backToTop) backToTop.classList.add('show');
     } else {
       if (navbar) navbar.classList.remove('navbar-scrolled');
-      if (backToTop) backToTop.classList.remove('show');
     }
   }, { passive: true });
-
-  if (backToTop) {
-    backToTop.addEventListener('click', function () {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
 
   // 2. Smooth Scroll-Triggered Reveal Animations (IntersectionObserver)
   const revealElements = document.querySelectorAll(
