@@ -27,3 +27,6 @@ Thumbs.db
 # Local backup / legacy scrapes
 backup/
 
+
+# PDF documentation / reference files
+*.pdf
