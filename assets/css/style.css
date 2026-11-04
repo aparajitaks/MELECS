@@ -16,28 +16,31 @@
    ========================================================================== */
 
 /* ==========================================================================
-   1. DESIGN TOKENS
+   1. DESIGN TOKENS (Aligned with MELECS Corporate Logo Theme)
    ========================================================================== */
 :root {
-  --navy:           #102A43;
-  --tech-blue:      #1769AA;
-  --electric:       #36A3F7;
-  --pink:           #E83E8C;
+  --navy:           #0B1D30; /* Corporate Deep Navy */
+  --navy-dark:      #081624;
+  --navy-slate:     #0E263E; /* High-tech Engineering Slate Navy */
+  --navy-light:     #133353;
+  --tech-blue:      #0671B7; /* Exact MELECS Logo Blue */
+  --electric:       #36A3F7; /* Logo Cyan Accent */
+  --pink:           #CB0669; /* Exact MELECS Logo Magenta */
   --white:          #FFFFFF;
-  --grey-alt:       #E9EEF2;
-  --charcoal:       #202B36;
+  --grey-alt:       #162E48;
+  --charcoal:       #E2E8F0;
 
-  --text-dark:      #102A43;
-  --text-body:      #202B36;
-  --text-muted:     #536473;
+  --text-dark:      #FFFFFF;
+  --text-body:      #CBD5E1;
+  --text-muted:     #94A3B8;
   --text-light:     #F0F4F8;
-  --border:         #C8D6E1;
+  --border:         rgba(54, 163, 247, 0.22);
   --border-dark:    rgba(255,255,255,0.12);
 
-  --shadow-xs:      0 1px 3px rgba(16,42,67,0.08);
-  --shadow-sm:      0 2px 8px rgba(16,42,67,0.10);
-  --shadow-md:      0 6px 20px rgba(16,42,67,0.10);
-  --shadow-lg:      0 12px 32px rgba(16,42,67,0.12);
+  --shadow-xs:      0 1px 3px rgba(0,0,0,0.25);
+  --shadow-sm:      0 2px 8px rgba(0,0,0,0.30);
+  --shadow-md:      0 6px 20px rgba(0,0,0,0.35);
+  --shadow-lg:      0 12px 32px rgba(0,0,0,0.45);
 
   --radius-sm:      4px;
   --radius-md:      8px;
@@ -58,7 +61,7 @@ html { scroll-behavior: smooth; font-size: 16px; }
 body {
   font-family: var(--font-body);
   color: var(--text-body);
-  background: var(--white);
+  background: var(--navy);
   line-height: 1.65;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -81,18 +84,19 @@ img { max-width: 100%; height: auto; display: block; }
 section[id], div[id] { scroll-margin-top: 84px; }
 
 /* Alternate section background */
-.section-alt { background: var(--grey-alt); }
+.section-alt { background: var(--navy-slate); }
 
 /* ==========================================================================
    3. TYPOGRAPHY UTILITIES
    ========================================================================== */
-.sec-eyebrow {
+.sec-eyebrow,
+.svc-eyebrow {
   font-family: var(--font-body);
   font-size: 0.78rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 2.5px;
-  color: var(--tech-blue);
+  color: var(--electric);
   display: block;
   margin-bottom: 0.5rem;
 }
@@ -101,14 +105,19 @@ section[id], div[id] { scroll-margin-top: 84px; }
   font-family: var(--font-heading);
   font-size: 2.1rem;
   font-weight: 800;
-  color: var(--navy);
+  color: #FFFFFF;
   text-transform: uppercase;
   letter-spacing: -0.3px;
   margin-bottom: 0.4rem;
 }
 
 .sec-accent {
-  color: var(--tech-blue);
+  color: var(--electric);
+}
+
+.sec-desc,
+.svc-subheading {
+  color: var(--text-muted);
 }
 
 /* Clean ruled divider with CAD crosshair markers */
@@ -247,8 +256,8 @@ section[id], div[id] { scroll-margin-top: 84px; }
    5. NAVIGATION
    ========================================================================== */
 .main-navbar {
-  background: var(--white);
-  border-bottom: 2px solid var(--grey-alt);
+  background: var(--navy);
+  border-bottom: 2px solid rgba(54, 163, 247, 0.22);
   transition: var(--transition);
   position: sticky;
   top: 0;
@@ -257,8 +266,10 @@ section[id], div[id] { scroll-margin-top: 84px; }
 }
 
 .navbar-scrolled {
-  box-shadow: 0 3px 16px rgba(16,42,67,0.10);
-  border-bottom-color: var(--tech-blue);
+  background: rgba(11, 29, 48, 0.96) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.40);
+  border-bottom-color: var(--electric);
 }
 
 .navbar-brand img {
@@ -266,13 +277,22 @@ section[id], div[id] { scroll-margin-top: 84px; }
   max-width: 180px;
   width: auto;
   object-fit: contain;
+  background: #ffffff;
+  padding: 4px 12px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  transition: var(--transition);
+}
+
+.navbar-brand img:hover {
+  transform: scale(1.02);
 }
 
 .nav-link {
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.91rem;
-  color: var(--navy) !important;
+  color: #FFFFFF !important;
   padding: 0.55rem 1rem !important;
   position: relative;
   transition: var(--transition);
@@ -285,25 +305,25 @@ section[id], div[id] { scroll-margin-top: 84px; }
   left: 1rem;
   right: 1rem;
   height: 2px;
-  background: var(--tech-blue);
+  background: var(--pink); /* Logo magenta highlight */
   transform: scaleX(0);
   transition: transform 0.2s ease;
 }
 
 .nav-link:hover,
-.nav-link.active { color: var(--tech-blue) !important; }
+.nav-link.active { color: var(--electric) !important; }
 
 .nav-link:hover::after,
 .nav-link.active::after { transform: scaleX(1); }
 
 /* Dropdown */
 .dropdown-menu-custom {
-  border: 1px solid var(--border);
+  border: 1px solid rgba(54, 163, 247, 0.25);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
   padding: 1rem;
   min-width: 300px;
-  background: var(--white);
+  background: var(--navy-slate);
 }
 
 .dropdown-item-custom {
@@ -312,11 +332,32 @@ section[id], div[id] { scroll-margin-top: 84px; }
   gap: 14px;
   padding: 0.65rem 0.85rem;
   border-radius: var(--radius-sm);
-  color: var(--navy);
+  color: #E2E8F0;
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.91rem;
   transition: var(--transition);
+}
+
+.dropdown-item-custom:hover {
+  background: rgba(6, 113, 183, 0.25);
+  color: #FFFFFF;
+}
+
+.dropdown-item-title {
+  color: #FFFFFF;
+}
+
+.dropdown-item-desc {
+  color: #94A3B8;
+}
+
+.navbar-toggler {
+  border-color: rgba(54, 163, 247, 0.4);
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
 }
 
 .dropdown-item-custom .icon-box {
@@ -598,7 +639,7 @@ section[id], div[id] { scroll-margin-top: 84px; }
    ========================================================================== */
 .services-section {
   padding: 90px 0;
-  background-color: #f7fafc;
+  background-color: var(--navy);
   position: relative;
   overflow: hidden;
 }
@@ -608,10 +649,10 @@ section[id], div[id] { scroll-margin-top: 84px; }
   position: absolute;
   inset: 0;
   background-image: 
-    linear-gradient(to right, rgba(23, 105, 170, 0.07) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(23, 105, 170, 0.07) 1px, transparent 1px);
+    linear-gradient(to right, rgba(54, 163, 247, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(54, 163, 247, 0.08) 1px, transparent 1px);
   background-size: 32px 32px;
-  opacity: 0.85;
+  opacity: 0.9;
   pointer-events: none;
 }
 
@@ -753,10 +794,10 @@ section[id], div[id] { scroll-margin-top: 84px; }
 .industries-section {
   position: relative;
   padding: 90px 0;
-  background-color: #f4f7fb;
+  background-color: var(--navy-slate);
   background-image: 
-    linear-gradient(to right, rgba(23, 105, 170, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(23, 105, 170, 0.06) 1px, transparent 1px);
+    linear-gradient(to right, rgba(54, 163, 247, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(54, 163, 247, 0.07) 1px, transparent 1px);
   background-size: 32px 32px;
   overflow: hidden;
 }
@@ -946,10 +987,10 @@ section[id], div[id] { scroll-margin-top: 84px; }
 .workflow-section {
   position: relative;
   padding: 90px 0;
-  background-color: #f8fafc;
+  background-color: var(--navy-slate);
   background-image: 
-    linear-gradient(to right, rgba(23, 105, 170, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(23, 105, 170, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(54, 163, 247, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(54, 163, 247, 0.07) 1px, transparent 1px);
   background-size: 32px 32px;
   overflow: hidden;
 }
@@ -1529,9 +1570,9 @@ section[id], div[id] { scroll-margin-top: 84px; }
 /* Intro Strip (Brief §7.1 item 2) with Engineering CAD Grid */
 .intro-strip {
   position: relative;
-  background-color: #f4f7fb;
-  border-top: 1px solid rgba(23, 105, 170, 0.16);
-  border-bottom: 1px solid rgba(23, 105, 170, 0.16);
+  background-color: var(--navy-slate);
+  border-top: 1px solid rgba(54, 163, 247, 0.22);
+  border-bottom: 1px solid rgba(54, 163, 247, 0.22);
   padding: 52px 0;
   overflow: hidden;
 }
@@ -1541,8 +1582,8 @@ section[id], div[id] { scroll-margin-top: 84px; }
   position: absolute;
   inset: 0;
   background-image: 
-    linear-gradient(to right, rgba(23, 105, 170, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(23, 105, 170, 0.08) 1px, transparent 1px);
+    linear-gradient(to right, rgba(54, 163, 247, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(54, 163, 247, 0.08) 1px, transparent 1px);
   background-size: 26px 26px;
   background-position: center center;
   pointer-events: none;
@@ -1553,7 +1594,7 @@ section[id], div[id] { scroll-margin-top: 84px; }
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.7) 0%, rgba(244, 247, 251, 0.3) 65%, rgba(244, 247, 251, 0.85) 100%);
+  background: radial-gradient(ellipse at center, rgba(14, 38, 62, 0.4) 0%, rgba(11, 29, 48, 0.85) 100%);
   pointer-events: none;
   z-index: 1;
 }
@@ -1561,12 +1602,12 @@ section[id], div[id] { scroll-margin-top: 84px; }
 /* Enclosing Precision Engineering Grid Frame */
 .intro-grid-frame {
   position: relative;
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(16, 42, 67, 0.90);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(23, 105, 170, 0.22);
+  border: 1px solid rgba(54, 163, 247, 0.35);
   border-radius: 12px;
   padding: 38px 46px;
-  box-shadow: 0 10px 30px rgba(16, 42, 67, 0.06), 0 1px 3px rgba(16, 42, 67, 0.04);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.40);
   max-width: 1040px;
   margin: 0 auto;
   text-align: center;
@@ -1586,7 +1627,7 @@ section[id], div[id] { scroll-margin-top: 84px; }
 .grid-corner-mark::after {
   content: '';
   position: absolute;
-  background: var(--tech-blue);
+  background: var(--electric);
 }
 
 .grid-corner-mark.top-left { top: -7px; left: -7px; }
@@ -1613,9 +1654,9 @@ section[id], div[id] { scroll-margin-top: 84px; }
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(23, 105, 170, 0.08);
-  border: 1px solid rgba(23, 105, 170, 0.2);
-  color: var(--tech-blue);
+  background: rgba(6, 113, 183, 0.25);
+  border: 1px solid rgba(54, 163, 247, 0.4);
+  color: var(--electric);
   font-family: var(--font-heading);
   font-size: 0.75rem;
   font-weight: 700;
@@ -1627,13 +1668,13 @@ section[id], div[id] { scroll-margin-top: 84px; }
 
 .intro-strip-text {
   font-size: 1.15rem;
-  color: var(--navy);
+  color: #FFFFFF;
   font-weight: 500;
   line-height: 1.78;
 }
 
 .intro-strip-text strong {
-  color: var(--tech-blue);
+  color: var(--electric);
   font-weight: 700;
 }
 
@@ -1650,18 +1691,18 @@ section[id], div[id] { scroll-margin-top: 84px; }
   align-items: center;
   gap: 14px;
   padding: 14px 18px;
-  background: #f8fafc;
-  border: 1px solid rgba(23, 105, 170, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(54, 163, 247, 0.22);
   border-radius: 8px;
   text-align: left;
   transition: all 0.25s ease;
-  box-shadow: 0 2px 6px rgba(16, 42, 67, 0.02);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .intro-prop-box:hover {
-  background: #ffffff;
-  border-color: var(--tech-blue);
-  box-shadow: 0 6px 18px rgba(23, 105, 170, 0.12);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--electric);
+  box-shadow: 0 6px 18px rgba(54, 163, 247, 0.25);
   transform: translateY(-2px);
 }
 
@@ -1669,8 +1710,8 @@ section[id], div[id] { scroll-margin-top: 84px; }
   width: 40px;
   height: 40px;
   border-radius: 8px;
-  background: rgba(23, 105, 170, 0.1);
-  color: var(--tech-blue);
+  background: rgba(54, 163, 247, 0.15);
+  color: var(--electric);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1688,14 +1729,14 @@ section[id], div[id] { scroll-margin-top: 84px; }
   display: block;
   font-size: 0.94rem;
   font-weight: 700;
-  color: var(--navy);
+  color: #FFFFFF;
   line-height: 1.3;
 }
 
 .intro-prop-sub {
   display: block;
   font-size: 0.76rem;
-  color: #627d98;
+  color: #94A3B8;
   font-weight: 500;
   margin-top: 2px;
 }
@@ -1955,16 +1996,97 @@ section[id], div[id] { scroll-margin-top: 84px; }
 /* Section backdrop grids */
 .cad-grid-light {
   background-image: 
-    linear-gradient(to right, rgba(23, 105, 170, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(23, 105, 170, 0.06) 1px, transparent 1px);
+    linear-gradient(to right, rgba(54, 163, 247, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(54, 163, 247, 0.07) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 
 .cad-grid-dark {
   background-image: 
-    linear-gradient(to right, rgba(54, 163, 247, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(54, 163, 247, 0.08) 1px, transparent 1px);
+    linear-gradient(to right, rgba(54, 163, 247, 0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(54, 163, 247, 0.09) 1px, transparent 1px);
   background-size: 34px 34px;
+}
+
+/* ==========================================================================
+   DARK THEME SECTIONS (Eliminating Pure White Backgrounds per Logo Theme)
+   ========================================================================== */
+.sec-dark-theme {
+  background-color: var(--navy-slate) !important;
+  color: #E2E8F0;
+  position: relative;
+}
+
+.sec-dark-alt {
+  background-color: var(--navy) !important;
+  color: #E2E8F0;
+  position: relative;
+}
+
+.sec-dark-theme h1,
+.sec-dark-theme h2,
+.sec-dark-theme h3,
+.sec-dark-theme h4,
+.sec-dark-theme h5,
+.sec-dark-alt h1,
+.sec-dark-alt h2,
+.sec-dark-alt h3,
+.sec-dark-alt h4,
+.sec-dark-alt h5 {
+  color: #FFFFFF;
+}
+
+.sec-dark-theme .lead,
+.sec-dark-alt .lead {
+  color: #94A3B8;
+}
+
+.sec-dark-theme p.text-secondary,
+.sec-dark-alt p.text-secondary,
+.sec-dark-theme .text-secondary {
+  color: #CBD5E1 !important;
+}
+
+.sec-dark-theme .text-muted:not(.card *):not(.bento-card *):not(.industry-card *):not(.why-card *),
+.sec-dark-alt .text-muted:not(.card *):not(.bento-card *):not(.industry-card *):not(.why-card *) {
+  color: #94A3B8 !important;
+}
+
+.sec-dark-theme .border-top,
+.sec-dark-alt .border-top {
+  border-top-color: rgba(54, 163, 247, 0.2) !important;
+}
+
+#capabilities {
+  background-color: var(--navy-slate) !important;
+}
+
+#capabilities .capability-tab-btn {
+  color: #94A3B8;
+}
+
+#capabilities .capability-tab-btn:hover,
+#capabilities .capability-tab-btn.active {
+  color: var(--electric);
+  border-bottom-color: var(--electric);
+}
+
+#why-choose {
+  background-color: var(--navy) !important;
+}
+
+#about-preview {
+  background-color: var(--navy-slate) !important;
+}
+
+#about-preview h2,
+#about-preview h3,
+#about-preview h4 {
+  color: #FFFFFF;
+}
+
+#about-preview p {
+  color: #CBD5E1;
 }
 
 
@@ -2232,9 +2354,9 @@ section[id], div[id] { scroll-margin-top: 84px; }
 /* Intro Strip (Brief §7.1 item 2) with Engineering CAD Grid */
 .intro-strip {
   position: relative;
-  background-color: #f4f7fb;
-  border-top: 1px solid rgba(23, 105, 170, 0.16);
-  border-bottom: 1px solid rgba(23, 105, 170, 0.16);
+  background-color: var(--navy-slate);
+  border-top: 1px solid rgba(54, 163, 247, 0.22);
+  border-bottom: 1px solid rgba(54, 163, 247, 0.22);
   padding: 52px 0;
   overflow: hidden;
 }
@@ -2244,8 +2366,8 @@ section[id], div[id] { scroll-margin-top: 84px; }
   position: absolute;
   inset: 0;
   background-image: 
-    linear-gradient(to right, rgba(23, 105, 170, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(23, 105, 170, 0.08) 1px, transparent 1px);
+    linear-gradient(to right, rgba(54, 163, 247, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(54, 163, 247, 0.08) 1px, transparent 1px);
   background-size: 26px 26px;
   background-position: center center;
   pointer-events: none;
@@ -2256,7 +2378,7 @@ section[id], div[id] { scroll-margin-top: 84px; }
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.7) 0%, rgba(244, 247, 251, 0.3) 65%, rgba(244, 247, 251, 0.85) 100%);
+  background: radial-gradient(ellipse at center, rgba(14, 38, 62, 0.4) 0%, rgba(11, 29, 48, 0.85) 100%);
   pointer-events: none;
   z-index: 1;
 }
@@ -2264,12 +2386,12 @@ section[id], div[id] { scroll-margin-top: 84px; }
 /* Enclosing Precision Engineering Grid Frame */
 .intro-grid-frame {
   position: relative;
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(16, 42, 67, 0.90);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(23, 105, 170, 0.22);
+  border: 1px solid rgba(54, 163, 247, 0.35);
   border-radius: 12px;
   padding: 38px 46px;
-  box-shadow: 0 10px 30px rgba(16, 42, 67, 0.06), 0 1px 3px rgba(16, 42, 67, 0.04);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.40);
   max-width: 1040px;
   margin: 0 auto;
   text-align: center;
@@ -2289,7 +2411,7 @@ section[id], div[id] { scroll-margin-top: 84px; }
 .grid-corner-mark::after {
   content: '';
   position: absolute;
-  background: var(--tech-blue);
+  background: var(--electric);
 }
 
 .grid-corner-mark.top-left { top: -7px; left: -7px; }
@@ -2316,9 +2438,9 @@ section[id], div[id] { scroll-margin-top: 84px; }
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(23, 105, 170, 0.08);
-  border: 1px solid rgba(23, 105, 170, 0.2);
-  color: var(--tech-blue);
+  background: rgba(6, 113, 183, 0.25);
+  border: 1px solid rgba(54, 163, 247, 0.4);
+  color: var(--electric);
   font-family: var(--font-heading);
   font-size: 0.75rem;
   font-weight: 700;
@@ -2330,13 +2452,13 @@ section[id], div[id] { scroll-margin-top: 84px; }
 
 .intro-strip-text {
   font-size: 1.15rem;
-  color: var(--navy);
+  color: #FFFFFF;
   font-weight: 500;
   line-height: 1.78;
 }
 
 .intro-strip-text strong {
-  color: var(--tech-blue);
+  color: var(--electric);
   font-weight: 700;
 }
 
@@ -2353,18 +2475,18 @@ section[id], div[id] { scroll-margin-top: 84px; }
   align-items: center;
   gap: 14px;
   padding: 14px 18px;
-  background: #f8fafc;
-  border: 1px solid rgba(23, 105, 170, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(54, 163, 247, 0.22);
   border-radius: 8px;
   text-align: left;
   transition: all 0.25s ease;
-  box-shadow: 0 2px 6px rgba(16, 42, 67, 0.02);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .intro-prop-box:hover {
-  background: #ffffff;
-  border-color: var(--tech-blue);
-  box-shadow: 0 6px 18px rgba(23, 105, 170, 0.12);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--electric);
+  box-shadow: 0 6px 18px rgba(54, 163, 247, 0.25);
   transform: translateY(-2px);
 }
 
@@ -2372,8 +2494,8 @@ section[id], div[id] { scroll-margin-top: 84px; }
   width: 40px;
   height: 40px;
   border-radius: 8px;
-  background: rgba(23, 105, 170, 0.1);
-  color: var(--tech-blue);
+  background: rgba(54, 163, 247, 0.15);
+  color: var(--electric);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2391,14 +2513,14 @@ section[id], div[id] { scroll-margin-top: 84px; }
   display: block;
   font-size: 0.94rem;
   font-weight: 700;
-  color: var(--navy);
+  color: #FFFFFF;
   line-height: 1.3;
 }
 
 .intro-prop-sub {
   display: block;
   font-size: 0.76rem;
-  color: #627d98;
+  color: #94A3B8;
   font-weight: 500;
   margin-top: 2px;
 }
