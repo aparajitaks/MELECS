@@ -1459,7 +1459,7 @@ section[id], div[id] { scroll-margin-top: 84px; }
    ========================================================================== */
 #back-to-top {
   position: fixed;
-  bottom: 28px; right: 28px;
+  bottom: 98px; right: 36px;
   width: 44px; height: 44px;
   border-radius: var(--radius-sm);
   background: var(--tech-blue);
@@ -1481,6 +1481,15 @@ section[id], div[id] { scroll-margin-top: 84px; }
   border-color: var(--electric);
   color: var(--electric);
   transform: translateY(-3px);
+}
+
+@media (max-width: 576px) {
+  #back-to-top {
+    bottom: 78px;
+    right: 24px;
+    width: 40px;
+    height: 40px;
+  }
 }
 
 /* ==========================================================================
@@ -2804,12 +2813,12 @@ section[id], div[id] { scroll-margin-top: 84px; }
 }
 
 /* ==========================================================================
-   FLOATING WHATSAPP BUTTON
+   FLOATING WHATSAPP BUTTON (Right Side)
    ========================================================================== */
 .float-whatsapp-btn {
   position: fixed;
-  bottom: 98px;
-  left: 28px;
+  bottom: 28px;
+  right: 28px;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -2872,11 +2881,12 @@ section[id], div[id] { scroll-margin-top: 84px; }
   z-index: 1;
 }
 
-/* Tooltip on hover */
+/* Tooltip on hover (expands inwards towards the left) */
 .float-whatsapp-btn::after {
   content: 'Chat on WhatsApp';
   position: absolute;
-  left: 70px;
+  right: 70px;
+  left: auto;
   top: 50%;
   transform: translateY(-50%);
   background: #0b2216;
@@ -2903,8 +2913,9 @@ section[id], div[id] { scroll-margin-top: 84px; }
   .float-whatsapp-btn {
     width: 52px;
     height: 52px;
-    bottom: 78px;
-    left: 18px;
+    bottom: 18px;
+    right: 18px;
+    left: auto;
   }
   .float-whatsapp-icon {
     width: 30px;
