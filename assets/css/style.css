@@ -2543,3 +2543,116 @@ section[id], div[id] { scroll-margin-top: 84px; }
   color: #ffffff !important;
 }
 
+
+/* ==========================================================================
+   FLOATING CALL BUTTON
+   ========================================================================== */
+.float-call-btn {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1769aa 0%, #36a3f7 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  box-shadow: 0 6px 24px rgba(23, 105, 170, 0.55);
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  overflow: visible;
+}
+
+.float-call-btn:hover {
+  transform: scale(1.12);
+  box-shadow: 0 10px 32px rgba(54, 163, 247, 0.65);
+}
+
+/* Pulsing rings */
+.float-call-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid rgba(54, 163, 247, 0.6);
+  animation: callRingPulse 2s ease-out infinite;
+}
+
+.float-call-ring-2 {
+  animation-delay: 0.75s;
+}
+
+@keyframes callRingPulse {
+  0%   { transform: scale(1);   opacity: 0.8; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+
+/* Icon inside the button */
+.float-call-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+}
+
+.float-call-fa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #ffffff;
+  position: relative;
+  z-index: 1;
+  animation: callShake 2.5s ease-in-out infinite;
+}
+
+@keyframes callShake {
+  0%, 100% { transform: rotate(0deg); }
+  10%       { transform: rotate(-15deg); }
+  20%       { transform: rotate(15deg); }
+  30%       { transform: rotate(-10deg); }
+  40%       { transform: rotate(10deg); }
+  50%       { transform: rotate(0deg); }
+}
+
+/* Tooltip on hover */
+.float-call-btn::after {
+  content: '+91 7899128234';
+  position: absolute;
+  left: 70px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--navy);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 7px 14px;
+  border-radius: 6px;
+  border: 1px solid rgba(54, 163, 247, 0.35);
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.float-call-btn:hover::after {
+  opacity: 1;
+}
+
+@media (max-width: 576px) {
+  .float-call-btn {
+    width: 52px;
+    height: 52px;
+    bottom: 18px;
+    left: 18px;
+  }
+  .float-call-btn::after {
+    display: none;
+  }
+}
