@@ -2681,6 +2681,118 @@ section[id], div[id] { scroll-margin-top: 84px; }
   }
 }
 
+/* ==========================================================================
+   FLOATING WHATSAPP BUTTON
+   ========================================================================== */
+.float-whatsapp-btn {
+  position: fixed;
+  bottom: 98px;
+  left: 28px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45);
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  overflow: visible;
+}
+
+.float-whatsapp-btn:hover {
+  transform: scale(1.12);
+  box-shadow: 0 10px 32px rgba(37, 211, 102, 0.65);
+}
+
+/* Pulsing rings for WhatsApp */
+.float-whatsapp-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid rgba(37, 211, 102, 0.6);
+  animation: waRingPulse 2s ease-out infinite;
+}
+
+.float-whatsapp-ring-2 {
+  animation-delay: 0.75s;
+}
+
+@keyframes waRingPulse {
+  0%   { transform: scale(1);   opacity: 0.8; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+
+/* Icon inside WhatsApp button */
+.float-whatsapp-icon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.25s ease;
+}
+
+.float-whatsapp-btn:hover .float-whatsapp-icon {
+  transform: scale(1.08);
+}
+
+.float-whatsapp-fa {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: #ffffff;
+  position: relative;
+  z-index: 1;
+}
+
+/* Tooltip on hover */
+.float-whatsapp-btn::after {
+  content: 'Chat on WhatsApp';
+  position: absolute;
+  left: 70px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #0b2216;
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 7px 14px;
+  border-radius: 6px;
+  border: 1px solid rgba(37, 211, 102, 0.4);
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.float-whatsapp-btn:hover::after {
+  opacity: 1;
+}
+
+@media (max-width: 576px) {
+  .float-whatsapp-btn {
+    width: 52px;
+    height: 52px;
+    bottom: 78px;
+    left: 18px;
+  }
+  .float-whatsapp-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .float-whatsapp-btn::after {
+    display: none;
+  }
+}
+
 
 /* ==========================================================================
    SCROLL ANIMATION SYSTEM (GSAP + Lenis)
