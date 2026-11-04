@@ -2108,6 +2108,22 @@ section[style*="#102A43"] p {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22) !important;
 }
 
+
+/* Light box sec-head override */
+.bg-light .sec-head,
+.card .sec-head,
+.bento-card .sec-head,
+.sec-dark-theme .bg-light .sec-head,
+.sec-dark-alt .bg-light .sec-head {
+  color: #102A43 !important;
+}
+
+.bg-light .sec-accent,
+.sec-dark-theme .bg-light .sec-accent,
+.sec-dark-alt .bg-light .sec-accent {
+  color: var(--tech-blue) !important;
+}
+
 .sec-dark-theme .bg-light h6,
 .sec-dark-alt .bg-light h6,
 .sec-dark-theme .bg-light .text-dark,
