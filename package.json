@@ -1,0 +1,9 @@
+{
+  "name": "melecs-technologies",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MELECS Technologies Corporate Engineering Website & Serverless Mailer",
+  "dependencies": {
+    "nodemailer": "^6.9.13"
+  }
+}
