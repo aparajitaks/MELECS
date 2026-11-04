@@ -1132,6 +1132,55 @@ section[id], div[id] { scroll-margin-top: 84px; }
 
 .form-control-custom::placeholder { color: #637383; }
 
+/* Custom File Upload Button */
+.custom-file-upload-label {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 0.93rem;
+}
+
+.custom-file-upload-label:hover {
+  border-color: var(--electric);
+  background: rgba(255,255,255,0.08);
+}
+
+.cfu-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 13px 18px;
+  background: var(--tech-blue);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  transition: var(--transition);
+}
+
+.custom-file-upload-label:hover .cfu-btn {
+  background: var(--electric);
+}
+
+.cfu-name {
+  padding: 13px 16px;
+  color: #8fa8c0;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .form-select-custom {
   width: 100%;
   background: rgba(16,42,67,0.8);

@@ -138,7 +138,7 @@
 
         <div class="col-lg-6">
           <div class="rounded-4 overflow-hidden shadow-lg border">
-            <img src="assets/images/audi_car.jpg" alt="Engineering Team at MELECS" class="w-100 d-block" style="height: 360px; object-fit: cover; object-position: center top;">
+            <img src="assets/images/audi_car.jpg" alt="Engineering Careers at Melecs" class="w-100 d-block" style="height: 360px; object-fit: cover;">
           </div>
         </div>
       </div>
@@ -257,8 +257,12 @@
                   </div>
                 </div>
                 <div class="col-12">
-                  <label for="car_resume" class="form-label text-light mb-1" style="font-size: 0.9rem;"><i class="fas fa-file-upload me-2 text-info"></i> Upload Resume (PDF / Word):</label>
-                  <input type="file" id="car_resume" name="resume" class="form-control-custom" accept=".pdf,.doc,.docx">
+                  <label for="car_resume" class="form-label text-light mb-2" style="font-size: 0.9rem;"><i class="fas fa-file-upload me-2 text-info"></i> Upload Resume (PDF / Word):</label>
+                  <label class="custom-file-upload-label" for="car_resume">
+                    <span class="cfu-btn"><i class="fas fa-paperclip me-2"></i>Choose File</span>
+                    <span class="cfu-name" id="car_resume_name">No file chosen</span>
+                  </label>
+                  <input type="file" id="car_resume" name="resume" accept=".pdf,.doc,.docx" style="display:none;" onchange="document.getElementById('car_resume_name').textContent = this.files[0] ? this.files[0].name : 'No file chosen'">
                 </div>
                 <div class="col-12">
                   <div class="form-floating-custom">
