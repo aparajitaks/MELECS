@@ -219,6 +219,30 @@ section[id], div[id] { scroll-margin-top: 84px; }
   box-shadow: 0 4px 10px rgba(54, 163, 247, 0.35);
 }
 
+/* Image-based social link buttons */
+.ftr-social-img {
+  width: 36px;
+  height: 36px;
+  padding: 2px;
+  background: #ffffff;
+  border-color: rgba(255,255,255,0.3);
+  overflow: hidden;
+}
+
+.ftr-social-img:hover {
+  background: #ffffff;
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+.ftr-social-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  display: block;
+}
+
 /* ==========================================================================
    5. NAVIGATION
    ========================================================================== */
@@ -2654,5 +2678,49 @@ section[id], div[id] { scroll-margin-top: 84px; }
   }
   .float-call-btn::after {
     display: none;
+  }
+}
+
+
+/* ==========================================================================
+   SCROLL ANIMATION SYSTEM (GSAP + Lenis)
+   ========================================================================== */
+
+/* Lenis root settings */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Universal reveal base state */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* Stacking service cards */
+.stack-card {
+  position: sticky;
+  top: calc(90px + var(--i, 0) * 18px);
+  min-height: 60vh;
+  margin-bottom: 8vh;
+  transform-origin: center top;
+  transition: box-shadow 0.3s ease;
+}
+
+@media (max-width: 767px) {
+  .stack-card {
+    position: relative;
+    top: auto;
+    min-height: auto;
+    margin-bottom: 2rem;
   }
 }
