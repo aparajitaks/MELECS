@@ -1807,16 +1807,30 @@ section[id], div[id] { scroll-margin-top: 84px; }
 }
 
 /* Standalone CTA Banner (Brief §7.1 item 9 & §7.3) */
-.cta-banner-section {
-  background: var(--navy);
-  color: #ffffff;
-  padding: 68px 0;
+.cta-banner-section,
+section.cta-banner-section,
+section[style*="linear-gradient"][style*="102A43"],
+section[style*="linear-gradient"][style*="#102A43"] {
+  background: linear-gradient(135deg, #0B1D30 0%, #081624 100%) !important;
+  color: #ffffff !important;
+  border-top: 3px solid var(--tech-blue) !important;
   position: relative;
-  border-top: 4px solid var(--tech-blue);
 }
 
-.cta-banner-section h2 {
-  color: #ffffff;
+.cta-banner-section h2,
+.cta-banner-section h3,
+section[style*="linear-gradient"] h2,
+section[style*="102A43"] h2,
+section[style*="#102A43"] h2,
+.text-white {
+  color: #ffffff !important;
+}
+
+.cta-banner-section p,
+section[style*="linear-gradient"] p,
+section[style*="102A43"] p,
+section[style*="#102A43"] p {
+  color: #CBD5E1 !important;
 }
 
 /* Tools & Technologies Grid (Brief §7.3) */
