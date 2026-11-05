@@ -2981,3 +2981,21 @@ body {
     margin-bottom: 2rem;
   }
 }
+
+/* Specific component fixes */
+.industry-segments-card {
+  background: #FFFFFF !important;
+}
+
+.industry-segments-card li {
+  color: #102A43 !important;
+  font-weight: 600 !important;
+}
+
+.biw-subtext {
+  font-size: 0.6em;
+  font-weight: 600;
+  vertical-align: middle;
+  opacity: 0.9;
+}
+
