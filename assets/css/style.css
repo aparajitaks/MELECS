@@ -273,8 +273,8 @@ section[id], div[id] { scroll-margin-top: 84px; }
 }
 
 .navbar-brand img {
-  height: 44px;
-  max-width: 180px;
+  height: 60px;
+  max-width: 240px;
   width: auto;
   object-fit: contain;
   transition: var(--transition);
@@ -1530,6 +1530,7 @@ section[id], div[id] { scroll-margin-top: 84px; }
 }
 
 @media (max-width: 576px) {
+  .navbar-brand img { height: 46px; max-width: 175px; }
   .hero-title { font-size: 1.85rem; }
   .sec-head { font-size: 1.6rem; }
   .page-banner { padding: 52px 0 40px; }
