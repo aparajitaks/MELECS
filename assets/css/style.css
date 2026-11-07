@@ -754,7 +754,7 @@ section[id], div[id] { scroll-margin-top: 84px; }
   color: #475569 !important;
   margin-bottom: 18px !important;
   line-height: 1.65 !important;
-  flex-grow: 1;
+  flex-grow: 0 !important;
 }
 
 .bento-tags {
@@ -2970,6 +2970,26 @@ body {
 .reveal {
   opacity: 0;
   transform: translateY(40px);
+}
+
+/* Guard: Nested card elements, headers, and text must NEVER remain hidden */
+.bento-card-title,
+.bento-card-desc,
+.bento-card h1,
+.bento-card h2,
+.bento-card h3,
+.bento-card h4,
+.bento-card h5,
+.bento-card h6,
+.bento-card p,
+.bento-card ul,
+.bento-card li,
+.bento-card .spec-pill,
+.sec-head,
+.sec-accent,
+.svc-subheading,
+.svc-eyebrow {
+  opacity: 1 !important;
 }
 
 /* Stacking service cards */
