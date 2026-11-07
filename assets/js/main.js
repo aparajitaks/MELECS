@@ -94,12 +94,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const progress = Math.min(elapsed / duration, 1);
         const currentVal = Math.round(easeOutCubic(progress) * target);
 
-        counter.innerText = currentVal;
+        counter.innerText = currentVal.toLocaleString();
 
         if (progress < 1) {
           requestAnimationFrame(update);
         } else {
-          counter.innerText = target;
+          counter.innerText = target.toLocaleString();
         }
       }
 

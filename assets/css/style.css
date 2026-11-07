@@ -958,7 +958,7 @@ section[id], div[id] { scroll-margin-top: 84px; }
   border: 1px solid rgba(54,163,247,0.25);
   border-top: 3px solid var(--tech-blue);
   border-radius: var(--radius-lg);
-  padding: 32px 22px;
+  padding: 30px 18px;
   text-align: center;
   transition: var(--transition);
   height: 100%;
@@ -972,11 +972,12 @@ section[id], div[id] { scroll-margin-top: 84px; }
 
 .milestone-number {
   font-family: var(--font-heading);
-  font-size: 3rem;
+  font-size: 2.65rem;
   font-weight: 800;
   color: var(--electric);
   line-height: 1.1;
   margin-bottom: 8px;
+  white-space: nowrap;
 }
 
 .milestone-title {
